@@ -1,18 +1,17 @@
-import { Link } from "react-router-dom"
-import { listaProdutos } from "../../components/listaProdutos"
+import { Link } from "react-router-dom";
+import { listaProdutos } from "../../components/listaProdutos";
 
 export default function Produtos() {
-
-  return(
+  return (
     <main>
       <h1>Produtos</h1>
-      {listaProdutos.map(prod=>(
+      {listaProdutos.map((prod) => (
         <div key={prod.id}>
-          <Link to={'/produto/editar/${prod.id}'}>
-            Editar o produto:{prod.nome}
+          <Link to={`/produto/editar/${prod.id}`}>
+            Editar o produto: {prod.nome}
           </Link>
         </div>
       ))}
-  </main>
-)
+    </main>
+  );
 }
