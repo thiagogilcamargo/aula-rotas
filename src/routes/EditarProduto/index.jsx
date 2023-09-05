@@ -1,4 +1,4 @@
-export default function EditarProdutos() {
+export default function EditarProduto() {
     
     return (
       <main>
