@@ -19,23 +19,24 @@ export default function ExcluirProdutos() {
     navigate("/produtos");
  }
 
-  return (
-    <div className={style.containerExcluir}>
-      <h1>Excluir Produtos</h1>
-      <div>
-          <section className={style.cardExcluir}>
-              <h2>PRODUTO SELECIONADO PARA EXCLUSÃO</h2>
-              <h3 className={style.alertMsg}>Você tem certeza de que deseja excluir esse produto?</h3>
-              <figure>
-                <img src={produto.img} alt={produto.desc} />
-                <figcaption>
-                  {produto.nome} - R$ {produto.preco} 
-                </figcaption>
-              </figure>
-              <button className={style.buttonExcluir} onClick={handleDelete}>Excluir</button>
-              <button className={style.buttonCancelar} onClick={() => navigate("/produtos")}>Cancelar</button>
+ return (
+  <div className={style.containerExcluir}>
+    <h1 className={style.cardTitle}>Excluir Produtos</h1>
+    <div>
+      <section className={style.cardExcluir}>
+        <h2 className={style.cardTitle2}>Produto Selecionado para Exclusão</h2>
+        <h3 className={style.alertMsg}>Você tem certeza de que deseja excluir esse produto?</h3>
+        <figure>
+          <img src={produto.img} alt={produto.desc} />
+          <figcaption>
+            {produto.nome} - R$ {produto.preco} 
+          </figcaption>
+        </figure>
+        <button className={style.buttonExcluir} onClick={handleDelete}>Excluir</button>
+        <button className={style.buttonCancelar} onClick={() => navigate("/produtos")}>Cancelar</button>
       </section>
-      </div>
     </div>
-  )
+  </div>
+)
+
 }

@@ -1,46 +1,43 @@
-import { Link } from "react-router-dom";
-import { listaProdutos } from "../../components/listaProdutos";
-import {AiFillEdit as Editar, AiOutlineDelete as Excluir} from "react-icons/ai";
-import classes from "./Produto.module.css";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom'; // Importe o Link
+import { listaProdutos } from '../../components/listaProdutos';
+import { AiFillEdit as Editar, AiOutlineDelete as Excluir } from 'react-icons/ai';
+import classes from './Produto.module.css';
 
 export default function Produtos() {
-
-  document.title = "lista de Produtos";
+  document.title = 'Lista de Produtos';
 
   const [exemplo, setExemplo] = useState([{}]);
-
   const [count, setCount] = useState(0);
 
-  useEffect(()=>{
-    console.log("Use-Effect que será sempre renderizado!");
+  useEffect(() => {
+    console.log('Use-Effect que será sempre renderizado!');
   });
 
-  useEffect(()=>{
-    console.log("Use-Effect que será renderizado apenas 1 vez!");
+  useEffect(() => {
+    console.log('Use-Effect que será renderizado apenas 1 vez!');
+    setExemplo(listaProdutos);
+  }, []);
 
-      setExemplo(listaProdutos);
-
-  },[]);
-
-  useEffect(()=>{
-    console.log("Use-Effect que será renderizado o objeto ou componente ou elemento que está no array de depenências sofrer atualização.");
-  },[count]);
-
-
-
+  useEffect(() => {
+    console.log(
+      'Use-Effect que será renderizado quando o objeto ou componente ou elemento que está no array de dependências sofrer atualização.'
+    );
+  }, [count]);
 
   return (
     <div>
-        <h1>LISTA DE PRODUTOS</h1>
-
+      <h1>LISTA DE PRODUTOS</h1>
 
       <div>
-      <button className="counterButton" onClick={() => setCount(count + 1)}> COUNTER - {count}</button>
-  
+        <button className="counterButton" onClick={() => setCount(count + 1)}>
+          COUNTER - {count}
+        </button>
       </div>
 
       <div>
+
+
         <table className={classes.tableStyle}>
           <thead>
             <tr className={classes.tableHeaderStyle}>
@@ -50,7 +47,7 @@ export default function Produtos() {
               <th className={classes.tableHeaderStyle}>Preço</th>
               <th className={classes.tableHeaderStyle}>Imagem</th>
               <th className={classes.tableHeaderStyle}>Editar/Excluir</th>
-              </tr>
+            </tr>
           </thead>
           <tbody>
             {exemplo.map((produto, index) => (
@@ -59,19 +56,33 @@ export default function Produtos() {
                 <td className={classes.tableDataStyle}>{produto.nome}</td>
                 <td className={classes.tableDataStyle}>{produto.desc}</td>
                 <td className={classes.tableDataStyle}>{produto.preco}</td>
-                <td className={classes.tableDataStyle}><img src={produto.img} alt={produto.desc} /></td>
-                <td className={classes.tableDataStyle}><Link to={`/editar/produtos/${produto.id}`}><Editar/></Link> | <Link to={`/excluir/produtos/${produto.id}`}><Excluir/></Link></td>
+                <td className={classes.tableDataStyle}>
+                  <img src={produto.img} alt={produto.desc} />
+                </td>
+                <td className={classes.tableDataStyle}>
+                  <Link to={`/editar/produtos/${produto.id}`}>
+                    <Editar />
+                  </Link>{' '}
+                  |{' '}
+                  <Link to={`/excluir/produtos/${produto.id}`}>
+                    <Excluir />
+                  </Link>
+                </td>
               </tr>
-            ))} 
+            ))}
           </tbody>
           <tfoot>
             <tr>
-              <td colSpan="5" className={classes.tableDataStyle}>Total de Produtos: {listaProdutos.length}</td>
+              <td colSpan="5" className={classes.tableDataStyle}>
+                Total de Produtos: {listaProdutos.length}
+              </td>
             </tr>
           </tfoot>
         </table>
-      </div>
 
+      </div>
+      {' '}
+        <Link to="/inserir/produto" className={classes.linkInserirNovoProduto}>Inserir Novo Produto</Link>
     </div>
-  )
+  );
 }

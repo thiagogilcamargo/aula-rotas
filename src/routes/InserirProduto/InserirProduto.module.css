@@ -1,0 +1,49 @@
+/* Estilo para o contêiner principal */
+.inserirProdutoContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  min-height: 100vh; /* Preencher a altura da tela */
+  background-image: url("https://i.pinimg.com/originals/ab/68/9d/ab689d879459fca3e6ef983453ceb69f.jpg"); /* Substitua "sua-imagem.jpg" pelo caminho da sua imagem de fundo */
+  background-size: cover; /* Tamanho da imagem de fundo */
+  background-repeat: no-repeat; /* Evitar a repetição da imagem */
+}
+
+
+/* Estilo para o botão "Inserir" */
+.containerInserir form button[type="submit"] {
+  background-color: var(--cor-secundaria); /* Cor secundária da paleta */
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 24px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.25s, color 0.25s;
+}
+
+/* Estilo do botão "Inserir" em hover */
+.containerInserir form button[type="submit"]:hover {
+  background-color: #C83250;
+}
+
+/* Estilo para o botão "Voltar" */
+.containerInserir form button[type="button"] {
+  background-color: #747272; /* Cor terciária da paleta */
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 24px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.25s, color 0.25s;
+  margin-left: 20px;
+}
+
+/* Estilo do botão "Voltar" em hover */
+.containerInserir form button[type="button"]:hover {
+  background-color: #D0D0D0;
+}

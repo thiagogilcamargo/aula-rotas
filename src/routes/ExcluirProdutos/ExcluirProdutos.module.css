@@ -1,23 +1,31 @@
-/* Paleta de Cores Aprimorada */
+/* Paleta de Cores */
 :root {
-    --cor-primaria: #0079BF; /* Azul mais suave para a cor primária */
-    --cor-secundaria: #EF6E95; /* Rosa mais suave para a cor secundária */
-    --cor-terciaria: #E0E0E0; /* Cinza claro */
-    --cor-texto-principal: #333; /* Texto principal em preto */
-    --cor-texto-secundario: #666; /* Texto secundário em cinza */
-    --cor-fundo: #F9F9F9; /* Fundo ainda mais claro */
+    --cor-primaria: #e87965;
+    --cor-secundaria: #ed1a0b;
+    --cor-terciaria: #ffffff;
+    --cor-texto-principal: #333;
+    --cor-texto-secundario: #666;
+    --cor-fundo: #dddddd;
 }
 
-/* Estilo para o contêiner externo */
+/* Estilos do Contêiner Externo */
 .containerExcluir {
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 20px;
-    background-color: var(--cor-fundo);
+    background-image: url("https://images6.alphacoders.com/691/691938.jpg"); /* Substitua "sua-imagem.jpg" pelo caminho da sua imagem de fundo */
+    background-size: cover; /* Tamanho da imagem de fundo */
+    background-repeat: no-repeat; /* Evitar a repetição da imagem */
+    border-radius: 8px; /* Adicionando borda arredondada ao contêiner */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Adicionando sombra */
+    max-width: 400px; /* Definindo uma largura máxima para o contêiner */
+    margin: 0 auto; /* Centralizando horizontalmente */
+    margin-top: 50px;
+    margin-bottom: 50px;
 }
 
-/* Estilo para a mensagem de alerta */
+/* Estilos para Mensagem de Alerta */
 .containerExcluir .alertMsg {
     background-color: var(--cor-secundaria);
     color: #fff;
@@ -27,7 +35,7 @@
     margin-bottom: 20px;
 }
 
-/* Estilos para os títulos h1 e h2 */
+/* Estilos para Títulos */
 .containerExcluir h1,
 .containerExcluir h2 {
     text-align: center;
@@ -35,27 +43,30 @@
     padding: 10px;
     margin: 0;
     color: var(--cor-texto-principal);
+    border-top-left-radius: 8px; /* Adicionando borda arredondada ao topo esquerdo */
+    border-top-right-radius: 8px; /* Adicionando borda arredondada ao topo direito */
 }
 
-/* Estilo para a figura e sua borda */
+/* Estilos para Figura e Borda */
 .containerExcluir figure {
     border: 3px solid var(--cor-primaria);
     margin: 20px 0;
     padding: 10px;
-    display: flex; /* Tornar a figura flexível */
-    flex-direction: column; /* Alinhar a imagem e a legenda verticalmente */
-    align-items: center; /* Centralizar itens horizontalmente */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-/* Estilo para a imagem */
+/* Estilos para Imagem */
 .containerExcluir img {
     max-width: 100%;
-    max-height: 300px; /* Defina a altura máxima desejada para a imagem */
-    object-fit: cover; /* Manter a proporção e cortar a imagem para preencher o espaço */
-    margin-bottom: 10px; /* Adicionar espaço entre a imagem e a legenda */
+    max-height: 300px;
+    object-fit: cover;
+    margin-bottom: 10px;
+    border-radius: 8px; /* Adicionando borda arredondada à imagem */
 }
 
-/* Estilo para a legenda da figura */
+/* Estilos para Legenda da Figura */
 .containerExcluir figcaption {
     background-color: rgba(0, 0, 0, 0.7);
     color: #fff;
@@ -63,21 +74,22 @@
     text-align: center;
     width: 100%;
     box-sizing: border-box;
+    border-bottom-left-radius: 8px; /* Adicionando borda arredondada à parte inferior esquerda */
+    border-bottom-right-radius: 8px; /* Adicionando borda arredondada à parte inferior direita */
 }
 
-
-/* Estilo para os botões */
+/* Estilos para Botões */
 .buttonContainer {
     display: flex;
-    justify-content: space-between; /* Espaçamento entre os botões */
+    justify-content: space-between;
     width: 100%;
 }
 
-/* Estilo para o botão "Excluir" */
-.buttonExcluir {
+/* Estilos para Botão "Excluir" */
+.buttonExcluir,
+.buttonCancelar {
     flex: 1;
-    margin-right: 10px; /* Espaçamento entre os botões */
-    background-color: var(--cor-secundaria); /* Usando a cor secundária da paleta */
+    background-color: var(--cor-secundaria);
     color: #fff;
     border: none;
     border-radius: 8px;
@@ -87,30 +99,15 @@
     font-family: inherit;
     cursor: pointer;
     transition: background-color 0.25s, color 0.25s;
+    margin-left: 10px;
 }
 
-/* Estilo do botão "Excluir" em hover */
+/* Estilo do Botão "Excluir" em Hover */
 .buttonExcluir:hover {
-    background-color: #C83250; /* Tonalidade mais escura do rosa */
+    background-color: #C83250;
 }
 
-/* Estilo para o botão "Cancelar" */
-.buttonCancelar {
-    flex: 1;
-    margin-left: 10px; /* Espaçamento entre os botões */
-    background-color: var(--cor-terciaria); /* Usando a cor terciária da paleta */
-    color: var(--cor-texto-principal);
-    border: none;
-    border-radius: 8px;
-    padding: 12px 24px;
-    font-size: 1rem;
-    font-weight: 600;
-    font-family: inherit;
-    cursor: pointer;
-    transition: background-color 0.25s, color 0.25s;
-}
-
-/* Estilo do botão "Cancelar" em hover */
+/* Estilo do Botão "Cancelar" em Hover */
 .buttonCancelar:hover {
-    background-color: #D0D0D0; /* Tonalidade mais escura do cinza claro */
+    background-color: #D0D0D0;
 }

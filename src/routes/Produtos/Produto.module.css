@@ -1,5 +1,24 @@
-/* Estilos da tabela */
-.tableStyle {
+
+
+/* Estilos para o link "Inserir Novo Produto" */
+.linkInserirNovoProduto {
+    background-color: #4CAF50; /* Cor de fundo verde */
+    color: #fff; /* Cor do texto branco */
+    padding: 10px 15px; /* Espaçamento interno */
+    text-decoration: none; /* Remova o sublinhado padrão do link */
+    border-radius: 4px; /* Cantos arredondados */
+    transition: background-color 0.2s; /* Suaviza a transição de cor */
+    margin-bottom: 20px; /* Espaçamento inferior */
+    display: inline-block; 
+    margin-right: 90%;/* Exibe o link como um bloco */
+  }
+  
+  .linkInserirNovoProduto:hover {
+    background-color: #45a049; /* Cor de fundo mais escura no hover */
+  }
+  
+  /* Outros estilos da tabela */
+  .tableStyle {
     width: 100%;
     border-collapse: collapse;
     border: 1px solid #333; /* Cor da borda da tabela */
@@ -7,33 +26,33 @@
     margin-top: 50px;
     margin-bottom: 50px;
     background-color: #fff; /* Cor de fundo da tabela */
-}
-
-/* Estilos do cabeçalho da tabela */
-.tableStyle th {
+  }
+  
+  /* Estilos do cabeçalho da tabela */
+  .tableStyle th {
     background-color: #0079BF; /* Azul */
     border: 1px solid #333; /* Cor da borda do cabeçalho */
     padding: 10px;
     text-align: left;
     color: #fff; /* Texto branco */
-}
-
-/* Estilos dos dados da tabela */
-.tableStyle td {
+  }
+  
+  /* Estilos dos dados da tabela */
+  .tableStyle td {
     border: 1px solid #333; /* Cor da borda das células de dados */
     padding: 10px;
     text-align: left;
     color: #333; /* Cor do texto das células de dados */
-}
-
-/* Estilos da linha da tabela quando o mouse passa por cima */
-.tableStyle tr:hover {
+  }
+  
+  /* Estilos da linha da tabela quando o mouse passa por cima */
+  .tableStyle tr:hover {
     background-color: #4A90E2; /* Azul mais forte */
     transition: background-color 0.2s; /* Suaviza a transição de cor */
-}
-
-/* Estilo para o botão "COUNTER" */
-button{
+  }
+  
+  /* Estilo para o botão "COUNTER" */
+  button {
     background-color: #4CAF50; /* Verde */
     color: #fff; /* Texto branco */
     border: none;
