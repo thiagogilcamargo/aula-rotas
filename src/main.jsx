@@ -10,6 +10,7 @@ import Error from './routes/Error/index.jsx'
 import ExcluirProdutos from './routes/ExcluirProdutos/index.jsx'
 import InserirProduto from './routes/InserirProduto/index.jsx'
 
+
 const router = createBrowserRouter([
   {
     path: "/",
