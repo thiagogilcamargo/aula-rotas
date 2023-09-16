@@ -7,7 +7,8 @@ import Home from './routes/Home/index.jsx'
 import Produtos from './routes/Produtos/index.jsx'
 import EditarProduto from './routes/EditarProduto/index.jsx'
 import Error from './routes/Error/index.jsx'
-import ExcluirProdutos from './routes/ExcluirProdutos';
+import ExcluirProdutos from './routes/ExcluirProdutos/index.jsx'
+import InserirProduto from './routes/InserirProduto/index.jsx'
 
 const router = createBrowserRouter([
   {
@@ -34,6 +35,10 @@ const router = createBrowserRouter([
       {
         path: "/excluir/produtos/:id",
         element: <ExcluirProdutos/>,
+      },
+      {
+        path: '/inserir/produto',
+        element: <InserirProduto />,
       }
     ],
   },
