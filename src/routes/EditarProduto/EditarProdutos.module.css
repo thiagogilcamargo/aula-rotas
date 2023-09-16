@@ -1,0 +1,114 @@
+/* EditarProdutos.module.css */
+
+/* Estilo para o contêiner principal */
+.editarProdutosContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    background-color: var(--cor-fundo); /* Cor de fundo da paleta */
+    min-height: 100vh; /* Preencher a altura da tela */
+  }
+  
+  /* Estilo para o título */
+  h1 {
+    font-size: 24px;
+    color: var(--cor-texto-principal); /* Cor do texto principal da paleta */
+    margin-bottom: 20px;
+  }
+  
+ /* Estilo para o formulário */
+/* Estilo para o formulário */
+form {
+    width: 100%;
+    max-width: 600px; /* Aumente o valor máximo para ampliar o formulário */
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    margin: 0 auto; /* Centraliza o formulário horizontalmente */
+    overflow-x: hidden; /* Esconde a barra de rolagem horizontal */
+  }
+  
+  /* Estilo para os campos de entrada */
+  form input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  /* Estilo para o botão */
+  form button {
+    background-color: #0079BF;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 12px 24px;
+    font-size: 1rem;
+    cursor: pointer;
+  }
+  
+  
+  /* Estilo para a legenda do formulário */
+  legend {
+    font-size: 20px;
+    color: var(--cor-primaria); /* Cor primária da paleta */
+    margin-bottom: 10px;
+  }
+  
+  /* Estilo para os campos de entrada */
+  input[type="text"] {
+    width: 90%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  /* Estilo para o botão "EDITAR" */
+  button {
+    background-color: var(--cor-secundaria); /* Cor secundária da paleta */
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 24px;
+    font-size: 1rem;
+    font-weight: 600;
+    font-family: Arial, sans-serif;
+    cursor: pointer;
+    transition: background-color 0.25s, color 0.25s;
+  }
+  
+  /* Estilo do botão "EDITAR" em hover */
+  button:hover {
+    background-color: #C83250; /* Tonalidade mais escura do rosa */
+  }
+  
+  /* Estilo para a seção de visualização dos dados do produto */
+  .dataSection {
+    margin-top: 20px;
+  }
+  
+  /* Estilo para os dados do produto */
+  .data {
+    font-size: 16px;
+    color: var(--cor-texto-principal); /* Cor do texto principal da paleta */
+    margin-bottom: 10px;
+  }
+  
+  /* Estilo para o link "Voltar" */
+  .backLink {
+    margin-top: 20px;
+    text-align: center;
+    color: var(--cor-primaria); /* Cor primária da paleta */
+    text-decoration: underline;
+    cursor: pointer;
+  }
+  
+  /* Estilo para o link "Voltar" em hover */
+  .backLink:hover {
+    font-weight: bold;
+  }
+  

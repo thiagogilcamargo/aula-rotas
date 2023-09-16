@@ -1,0 +1,116 @@
+/* Paleta de Cores Aprimorada */
+:root {
+    --cor-primaria: #0079BF; /* Azul mais suave para a cor primária */
+    --cor-secundaria: #EF6E95; /* Rosa mais suave para a cor secundária */
+    --cor-terciaria: #E0E0E0; /* Cinza claro */
+    --cor-texto-principal: #333; /* Texto principal em preto */
+    --cor-texto-secundario: #666; /* Texto secundário em cinza */
+    --cor-fundo: #F9F9F9; /* Fundo ainda mais claro */
+}
+
+/* Estilo para o contêiner externo */
+.containerExcluir {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    background-color: var(--cor-fundo);
+}
+
+/* Estilo para a mensagem de alerta */
+.containerExcluir .alertMsg {
+    background-color: var(--cor-secundaria);
+    color: #fff;
+    border: 2px solid #8f1e2d;
+    padding: 12px 24px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+/* Estilos para os títulos h1 e h2 */
+.containerExcluir h1,
+.containerExcluir h2 {
+    text-align: center;
+    background-color: var(--cor-terciaria);
+    padding: 10px;
+    margin: 0;
+    color: var(--cor-texto-principal);
+}
+
+/* Estilo para a figura e sua borda */
+.containerExcluir figure {
+    border: 3px solid var(--cor-primaria);
+    margin: 20px 0;
+    padding: 10px;
+    display: flex; /* Tornar a figura flexível */
+    flex-direction: column; /* Alinhar a imagem e a legenda verticalmente */
+    align-items: center; /* Centralizar itens horizontalmente */
+}
+
+/* Estilo para a imagem */
+.containerExcluir img {
+    max-width: 100%;
+    max-height: 300px; /* Defina a altura máxima desejada para a imagem */
+    object-fit: cover; /* Manter a proporção e cortar a imagem para preencher o espaço */
+    margin-bottom: 10px; /* Adicionar espaço entre a imagem e a legenda */
+}
+
+/* Estilo para a legenda da figura */
+.containerExcluir figcaption {
+    background-color: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    padding: 8px;
+    text-align: center;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+
+/* Estilo para os botões */
+.buttonContainer {
+    display: flex;
+    justify-content: space-between; /* Espaçamento entre os botões */
+    width: 100%;
+}
+
+/* Estilo para o botão "Excluir" */
+.buttonExcluir {
+    flex: 1;
+    margin-right: 10px; /* Espaçamento entre os botões */
+    background-color: var(--cor-secundaria); /* Usando a cor secundária da paleta */
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 24px;
+    font-size: 1rem;
+    font-weight: 600;
+    font-family: inherit;
+    cursor: pointer;
+    transition: background-color 0.25s, color 0.25s;
+}
+
+/* Estilo do botão "Excluir" em hover */
+.buttonExcluir:hover {
+    background-color: #C83250; /* Tonalidade mais escura do rosa */
+}
+
+/* Estilo para o botão "Cancelar" */
+.buttonCancelar {
+    flex: 1;
+    margin-left: 10px; /* Espaçamento entre os botões */
+    background-color: var(--cor-terciaria); /* Usando a cor terciária da paleta */
+    color: var(--cor-texto-principal);
+    border: none;
+    border-radius: 8px;
+    padding: 12px 24px;
+    font-size: 1rem;
+    font-weight: 600;
+    font-family: inherit;
+    cursor: pointer;
+    transition: background-color 0.25s, color 0.25s;
+}
+
+/* Estilo do botão "Cancelar" em hover */
+.buttonCancelar:hover {
+    background-color: #D0D0D0; /* Tonalidade mais escura do cinza claro */
+}

@@ -1,25 +1,91 @@
-import { useParams,useNavigate } from "react-router-dom"
-import {listaProdutos} from "../../components/listaProdutos"
+import { useNavigate, useParams } from "react-router-dom";
+import { listaProdutos } from "../../components/listaProdutos";
+import { useState } from "react";
+import style from './EditarProdutos.module.css';
 
-export default function EditarProduto() {
+export default function EditarProdutos() {
+  //Utilizar o HOOK useParams() para recuperar o ID passado no path
+  const { id } = useParams();
 
-  const lista = listaProdutos
-  const navegacao = useNavigate()
-  const {id} = useParams()
+  document.title = "EDITAR PRODUTOS " + id;
 
-  const proc = lista.filter(prod => prod.id == id)
-  const produto = proc[0]
+  const navigate = useNavigate();
 
-  const salvar = () =>{
-      alert('Produto:${produto.nome} editando com sucesso!')
-      return navegacao('/produto')
+  const produtoRetornadoDoFiltro = listaProdutos.filter(
+    (produto) => produto.id == id
+  )[0];
+  //useState()
+  const [produto, setProduto] = useState({
+    id: produtoRetornadoDoFiltro.id,
+    nome: produtoRetornadoDoFiltro.nome,
+    desc: produtoRetornadoDoFiltro.desc,
+    preco: produtoRetornadoDoFiltro.preco,
+    img: produtoRetornadoDoFiltro.img,
+    
+  });
+
+  const handleChange = (event) =>{
+
+    //Destructuring
+    const {name, value} = event.target;
+
+    setProduto({...produto,[name]:value});
+  
   }
 
-  return(
-     <main>
-         <h1> Editando o produto </h1>
-         <p>Editando os dados do produto: {produto.nome}</p>
-         <button onClick={salvar}>Salvar</button>
-     </main>
-  )
+  const handleSubmit = (event) => {
+    event.preventDefault();
+  
+    let indice;
+  
+    listaProdutos.forEach((item, index) => {
+      if (item.id == id) {
+        indice = index;
+      }
+    });
+    listaProdutos.splice(indice, 1, produto); 
+    navigate("/produtos");
+  }
+
+
+  return (
+    <div>
+      <h1>EditarProdutos</h1>
+      <div>
+        <form onSubmit={handleSubmit}>
+          <fieldset>
+            <legend>Produto Selecionado</legend>
+            <input type="hidden" name="id" value={produto.id} />
+            <div>
+              <label htmlFor="idProd">Nome do Produto</label>
+              <input type="text" name="nome" id="idProd" onChange={handleChange} value={produto.nome} />
+            </div>
+            <div>
+              <label htmlFor="idDesc">Descrição</label>
+              <input type="text" name="desc" id="idDesc" onChange={handleChange} value={produto.desc} />
+            </div>
+            <div>
+              <label htmlFor="idPreco">Preço</label>
+              <input
+                type="text"
+                name="preco"
+                id="idPreco"
+                onChange={handleChange}
+                value={produto.preco}
+              />
+            </div>
+            <div>
+              <button>EDITAR</button>
+            </div>
+          </fieldset>
+        </form>
+      </div>
+
+        <div>
+          <p>Nome : {produto.nome}</p>
+          <p>Desc : {produto.desc}</p>
+          <p>Preço : {produto.preco}</p>
+        </div>
+    </div>
+  );
 }
