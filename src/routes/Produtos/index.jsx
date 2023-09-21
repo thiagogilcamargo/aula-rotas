@@ -10,6 +10,10 @@ export default function Produtos() {
   const [exemplo, setExemplo] = useState([{}]);
   const [count, setCount] = useState(0);
 
+  function formatPrice(price) {
+    return new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(price);
+  }
+
   useEffect(() => {
     console.log('Use-Effect que será sempre renderizado!');
   });
@@ -36,6 +40,7 @@ export default function Produtos() {
       </div>
 
       <div>
+        
 
 
         <table className={classes.tableStyle}>
@@ -55,7 +60,7 @@ export default function Produtos() {
                 <td className={classes.tableDataStyle}>{produto.id}</td>
                 <td className={classes.tableDataStyle}>{produto.nome}</td>
                 <td className={classes.tableDataStyle}>{produto.desc}</td>
-                <td className={classes.tableDataStyle}>{produto.preco}</td>
+                <td className={classes.tableDataStyle}>{formatPrice(produto.preco)}</td>
                 <td className={classes.tableDataStyle}>
                   <img src={produto.img} alt={produto.desc} />
                 </td>

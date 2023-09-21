@@ -9,9 +9,9 @@ export default function EditarProdutos() {
   document.title = "EDITAR PRODUTOS " + id;
   const navigate = useNavigate();
 
-  const produtoRetornadoDoFiltro = listaProdutos.filter(
-    (produto) => produto.id == id
-  )[0];
+  const produtoRetornadoDoFiltro = listaProdutos.find(
+    (produto) => produto.id === id
+  );
 
   const [produto, setProduto] = useState({
     id: produtoRetornadoDoFiltro.id,
@@ -21,6 +21,8 @@ export default function EditarProdutos() {
     img: produtoRetornadoDoFiltro.img,
   });
 
+  const [errors, setErrors] = useState({});
+
   const handleChange = (event) => {
     const { name, value } = event.target;
     setProduto({ ...produto, [name]: value });
@@ -28,13 +30,34 @@ export default function EditarProdutos() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    let indice;
-    listaProdutos.forEach((item, index) => {
-      if (item.id == id) {
-        indice = index;
-      }
-    });
-    listaProdutos.splice(indice, 1, produto);
+
+    // Validação dos campos
+    const newErrors = {};
+    if (!produto.nome) {
+      newErrors.nome = 'O nome do produto é obrigatório.';
+    }
+    if (!produto.desc) {
+      newErrors.desc = 'A descrição do produto é obrigatória.';
+    }
+    if (!produto.preco || isNaN(parseFloat(produto.preco))) {
+      newErrors.preco = 'O preço deve ser um número válido.';
+    }
+    if (!produto.img) {
+      newErrors.img = 'A URL da imagem é obrigatória.';
+    }
+
+    // Se houver erros, não atualiza o produto
+    if (Object.keys(newErrors).length > 0) {
+      setErrors(newErrors);
+      return;
+    }
+
+    // Encontra o índice do produto na lista
+    const indice = listaProdutos.findIndex((item) => item.id === id);
+
+    // Atualiza o produto na lista
+    listaProdutos[indice] = produto;
+
     navigate("/produtos");
   };
 
@@ -55,6 +78,7 @@ export default function EditarProdutos() {
                 onChange={handleChange}
                 value={produto.nome}
               />
+              {errors.nome && <p className={style.error}>{errors.nome}</p>}
             </div>
             <div className={style.formField}>
               <label htmlFor="idDesc">Descrição:</label>
@@ -65,6 +89,7 @@ export default function EditarProdutos() {
                 onChange={handleChange}
                 value={produto.desc}
               />
+              {errors.desc && <p className={style.error}>{errors.desc}</p>}
             </div>
             <div className={style.formField}>
               <label htmlFor="idPreco">Preço:</label>
@@ -75,6 +100,18 @@ export default function EditarProdutos() {
                 onChange={handleChange}
                 value={produto.preco}
               />
+              {errors.preco && <p className={style.error}>{errors.preco}</p>}
+            </div>
+            <div className={style.formField}>
+              <label htmlFor="idImg">URL da Imagem:</label>
+              <input
+                type="text"
+                name="img"
+                id="idImg"
+                onChange={handleChange}
+                value={produto.img}
+              />
+              {errors.img && <p className={style.error}>{errors.img}</p>}
             </div>
             <div className={style.formField}>
               <button type="submit" className={style.editButton}>EDITAR</button>
@@ -96,6 +133,10 @@ export default function EditarProdutos() {
               <tr>
                 <td className={style.dataTitle}>Preço:</td>
                 <td>{produto.preco}</td>
+              </tr>
+              <tr>
+                <td className={style.dataTitle}>URL da Imagem:</td>
+                <td>{produto.img}</td>
               </tr>
             </tbody>
           </table>
